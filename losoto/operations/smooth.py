@@ -4,14 +4,16 @@
 # This operation for LoSoTo implement a smoothing function
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading SMOOTH module.')
 
 def run( step, parset, H ):
 
     import scipy.ndimage.filters
-    from h5parm import solFetcher, solWriter
+    from losoto.h5parm import solFetcher, solWriter
 
     soltabs = getParSoltabs( step, parset, H )
     ants = getParAxis( step, parset, H, 'ant' )

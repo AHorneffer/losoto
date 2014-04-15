@@ -9,6 +9,8 @@
 
 # Authors:
 # Francesco de Gasperin
+from losoto import losoto
+
 _author = "Francesco de Gasperin (fdg@hs.uni-hamburg.de)"
 
 import sys, os, glob
@@ -18,7 +20,6 @@ import progressbar
 import logging
 import pyrap.tables as pt
 import lofar.parmdb
-import losoto._version
 import losoto._logging
 from losoto.h5parm import h5parm, solWriter
 
@@ -84,7 +85,7 @@ if __name__=='__main__':
     # Options
     import optparse
     opt = optparse.OptionParser(usage='%prog [-v] <H5parm> <globaldb/SBname> \n'\
-                    +_author, version='%prog '+losoto._version.__version__)
+                    +_author, version='%prog '+ losoto._version.__version__)
     opt.add_option('-v', '--verbose', help='Go Vebose! (default=False)', action='store_true', default=False)
     opt.add_option('-s', '--solset', help='Solution-set name (default=sol###)', type='string', default=None)
     opt.add_option('-i', '--instrument', help='Name of the instrument table (default=instrument*)', type='string', default='instrument*')

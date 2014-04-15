@@ -4,7 +4,9 @@
 # This operation for LoSoTo implements basic plotting
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading PLOT module.')
 
@@ -18,7 +20,7 @@ def make_tec_screen_plots(pp, tec_screen, residuals, station_positions,
     from mpl_toolkits.axes_grid1.inset_locator import inset_axes
     import numpy as np
     import os
-    from operations.tecscreen import calc_piercepoint
+    from losoto.operations.tecscreen import calc_piercepoint
     import progressbar
 
     root_dir = os.path.dirname(prefix)
@@ -199,7 +201,7 @@ def run( step, parset, H ):
 
     import matplotlib.pyplot as plt
     import numpy as np
-    from h5parm import solFetcher
+    from losoto.h5parm import solFetcher
 
     solsets = getParSolsets( step, parset, H )
     soltabs = getParSoltabs( step, parset, H )

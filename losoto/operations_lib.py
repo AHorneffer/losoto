@@ -3,9 +3,7 @@
 
 # Some utilities for operations
 
-import sys
 import logging
-from h5parm import solFetcher
 
 #def getParAnts( step, parset, H ):
 #    """

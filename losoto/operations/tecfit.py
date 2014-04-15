@@ -4,7 +4,9 @@
 # This is the phase-gradient TEC-fitting operation for LoSoTo
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading TECFIT module.')
 
@@ -16,7 +18,7 @@ def collect_solutions(H, dirs=None, freq_tol=1e6, solsets=None):
     import numpy as np
     from pylab import find
     import progressbar
-    import re
+
     logging.info("Scanning for solutions needed for TEC fitting...")
 
     # Determine axis lengths
@@ -611,7 +613,7 @@ def run( step, parset, H ):
     The TEC solution table may be used to derive TEC screens using the
     TECSCREEN operation.
     """
-    from h5parm import solFetcher, solWriter
+    from losoto.h5parm import solWriter
     import numpy as np
     from pylab import find
     import re

@@ -4,14 +4,16 @@
 # This operation for LoSoTo implement a flagging procedure
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading FLAG module.')
 
 def run( step, parset, H ):
 
     import numpy as np
-    from h5parm import solFetcher, solWriter
+    from losoto.h5parm import solFetcher, solWriter
 
     soltabs = getParSoltabs( step, parset, H )
     ants = getParAxis( step, parset, H, 'ant' )

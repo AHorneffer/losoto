@@ -8,13 +8,14 @@
 # Authors:
 # Francesco de Gasperin
 # Bas van der Tol
+from losoto import losoto
+
 _author = "Francesco de Gasperin (fdg@hs.uni-hamurg.de)\n\
 Bas van der Tol (vdtol@strw.leidenuniv.nl)"
 
 import sys, os, re
 import logging
 import lofar.parameterset
-import losoto._version
 import losoto._logging
 
 def splitgds(gdsFile, wd='', id='part'):
@@ -52,7 +53,7 @@ if __name__=='__main__':
     # Options
     import optparse
     opt = optparse.OptionParser(usage='%prog [-v] [-o] [-d gds] [-g output globaldb] \n'\
-            +_author, version='%prog '+losoto._version.__version__)
+            +_author, version='%prog '+ losoto._version.__version__)
     opt.add_option('-v', '--verbose', help='Go VeRbOsE! (default=False)', action='store_true', default=False)
     opt.add_option('-o', '--overwrite', help='Overwrite an existing globaldb (default=False)', action='store_true', default=False)
     opt.add_option('-d', '--gds', help='Gds file used to construct the globaldb', type='string', default='')

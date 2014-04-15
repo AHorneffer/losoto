@@ -4,7 +4,9 @@
 # This is an interpolation script for LoSoTo
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading INTERP module.')
 
@@ -15,7 +17,7 @@ def run( step, parset, H ):
     import itertools
     import scipy.interpolate
     import numpy as np
-    from h5parm import solFetcher, solWriter
+    from losoto.h5parm import solFetcher, solWriter
     
     solsets = getParSolsets( step, parset, H )
     soltabs = getParSoltabs( step, parset, H )

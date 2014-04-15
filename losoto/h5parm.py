@@ -3,13 +3,18 @@
 
 # Retrieving and writing data in H5parm format
 
-import os, sys, re
+import os
+import sys
+import re
 import numpy as np
-import tables
 import logging
-import _version
+
+import tables
+
 
 # check for tables version
+import _version
+
 if int(tables.__version__.split('.')[0]) < 3:
     logging.critical('pyTables version must be >= 3.0.0, found: '+tables.__version__)
     sys.exit(1)

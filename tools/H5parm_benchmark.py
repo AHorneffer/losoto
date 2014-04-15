@@ -5,20 +5,21 @@
 
 # Authors:
 # Francesco de Gasperin
+from losoto import losoto
+
 _author = "Francesco de Gasperin (fdg@hs.uni-hamurg.de)"
 
-import sys, os, time
+import os, time
 import numpy as np
 import logging
 import lofar.parmdb
-import losoto._version
 import losoto._logging
 from losoto.h5parm import h5parm, solFetcher, solWriter
 
 # Options
 import optparse
 opt = optparse.OptionParser(usage='%prog -p H5parm [-s solset] -g parmdb [-n 100]\n'\
-                +_author, version='%prog '+losoto._version.__version__)
+                +_author, version='%prog '+ losoto._version.__version__)
 opt.add_option('-p', '--h5parm', help='H5parm name', type='string', default='')
 opt.add_option('-g', '--parmdb', help='Parmdb name', type='string', default='')
 opt.add_option('-s', '--solset', help='Solution-set name (default=sol000)', type='string', default='sol000')

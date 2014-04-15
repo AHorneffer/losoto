@@ -5,14 +5,12 @@
 
 # Authors:
 # Francesco de Gasperin
+from losoto import losoto
+
 _author = "Francesco de Gasperin (fdg@hs.uni-hamurg.de)"
 
-import sys, os, glob
-import numpy as np
+import sys, os
 import logging
-import pyrap.tables as pt
-import lofar.parmdb
-import losoto._version
 import losoto._logging
 import losoto.h5parm
 
@@ -20,7 +18,7 @@ if __name__=='__main__':
     # Options
     import optparse
     opt = optparse.OptionParser(usage='%prog [-v] <H5parm:solset> <H5parm:solset> \n'\
-                            +_author, version='%prog '+losoto._version.__version__)
+                            +_author, version='%prog '+ losoto._version.__version__)
     opt.add_option('-v', '--verbose', help='Go VERBOSE! (default=False)', action='store_true', default=False)
     (options, args) = opt.parse_args()
 

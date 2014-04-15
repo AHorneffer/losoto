@@ -4,14 +4,16 @@
 # This operation reset all the selected amplitudes to 1
 # and all other selected solution types to 0
 
-from operations_lib import *
 import logging
+
+from ..operations_lib import *
+
 
 logging.debug('Loading RESET module.')
 
 def run( step, parset, H ):
 
-   from h5parm import solWriter
+   from losoto.h5parm import solWriter
 
    soltabs = getParSoltabs( step, parset, H )
    ants = getParAxis( step, parset, H, 'ant' )

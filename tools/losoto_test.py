@@ -7,12 +7,12 @@
 # Francesco de Gasperin
 _author = "Francesco de Gasperin (fdg@hs.uni-hamurg.de)"
 
-import sys, os, time
+import os
 import numpy as np
 import logging
-import losoto._version
-import losoto._logging
+
 from losoto.h5parm import h5parm, solFetcher, solWriter
+
 
 if os.path.isfile('test.h5'): os.system('rm test.h5')
 

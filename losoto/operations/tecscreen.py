@@ -4,7 +4,9 @@
 # This is the TEC-screen operation for LoSoTo
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading TECSCREEN module.')
 
@@ -141,7 +143,6 @@ def fit_screen_to_tec(station_names, source_names, pp, airmass, rr, times,
     Fits a screen to given TEC values
     """
     import numpy as np
-    from pylab import kron, concatenate, pinv, norm, newaxis, find, amin, svd, eye
     import progressbar
 
     logging.info('Fitting screens to TEC values...')
@@ -210,8 +211,7 @@ def run( step, parset, H ):
         Model.Ionosphere.Type = EXPION
     """
     import numpy as np
-    import re
-    from h5parm import solFetcher, solWriter
+    from losoto.h5parm import solFetcher, solWriter
 
     soltabs = getParSoltabs( step, parset, H )
     outSoltabs = parset.getStringVector('.'.join(["LoSoTo.Steps", step, "OutSoltab"]), [] )

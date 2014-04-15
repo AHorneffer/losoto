@@ -8,6 +8,8 @@
 # Reinout van Weeren
 # Maaijke Mevius
 # Bas van der Tol
+import _logging, _version, h5parm, operations
+
 _author = "Francesco de Gasperin (fdg@hs.uni-hamburg.de)"
 
 import sys
@@ -16,9 +18,6 @@ import time
 import atexit
 import tables
 import logging
-import _version
-import _logging
-from h5parm import h5parm
 import lofar.parameterset
 
 def my_close_open_files(verbose):
@@ -46,7 +45,7 @@ if __name__=='__main__':
     # Options
     import optparse
     opt = optparse.OptionParser(usage='%prog [-v|-V] h5parm parset [default: losoto.parset] \n'
-            +_author, version='%prog '+_version.__version__)
+            +_author, version='%prog '+ _version.__version__)
     opt.add_option('-q', help='Quiet', action='store_true', default=False)
     opt.add_option('-v', help='Verbose', action='store_true', default=False)
     opt.add_option('-f', '--filter', help='Filter to use with "-i" option to filter on solution set names (default=None)', type='string', default=None)
@@ -93,8 +92,7 @@ if __name__=='__main__':
     steps = parset.getStringVector( "LoSoTo.Steps", [] )
 
     # Possible operations, linked to relative function
-    import operations
-    operations = { 
+    operations = {
                    "ABS": operations.abs,
                    "CLIP": operations.clip,
                    "INTERP": operations.interp,

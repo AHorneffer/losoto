@@ -4,7 +4,9 @@
 # This is a script for copying tables values in LoSoTo
 
 import logging
-from operations_lib import *
+
+from ..operations_lib import *
+
 
 logging.debug('Loading COPY module.')
 
@@ -14,7 +16,7 @@ def run( step, parset, H ):
     If tables have different sampling, then resample the values
     """
     import numpy as np
-    from h5parm import solFetcher, solWriter
+    from losoto.h5parm import solFetcher, solWriter
     
     inTable = parset.getString('.'.join(["LoSoTo.Steps", step, "InTable"]), '' )
     outTable = parset.getString('.'.join(["LoSoTo.Steps", step, "OutTable"]), '' )
